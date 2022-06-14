@@ -48,7 +48,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">{{$title ?? 'Dashboard'}}</h1>
+                    <h1 class="h3 mb-0 text-gray-800">{{$title ?? ''}}</h1>
                 </div>
 
                 @if (count($errors) > 0)
@@ -83,7 +83,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
+                    <span>Copyright &copy;IDPay</span>
                 </div>
             </div>
         </footer>

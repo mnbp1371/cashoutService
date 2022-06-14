@@ -14,13 +14,17 @@ class TransactionController extends Controller
     use HttpHelper;
 
     /**
+     * @param Request $request
+     *
      * @return View|Factory|RedirectResponse|Application
      */
-    public function index(): View|Factory|RedirectResponse|Application
+    public function index(Request $request): View|Factory|RedirectResponse|Application
     {
         try {
+            $transactions = $this->call('transactions', 'GET', $request->toArray());
             return view('transactions.index')->with([
-                'transactions' => $this->call('transactions')
+                'transactions' => $transactions['data'],
+                'meta' => $transactions['meta'],
             ]);
         } catch (\Throwable $exception) {
             return $this->errorResponse($exception);

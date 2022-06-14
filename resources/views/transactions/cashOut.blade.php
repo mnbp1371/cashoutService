@@ -1,55 +1,56 @@
-@extends('layouts.app', ['title' => __('transactions')])
+@extends('layouts.app', ['title' => __('CASH_OUT')])
 @section('content')
     <div class="card-body">
 
         <form method="post" action="{{route('user.cashOutCall')}}">
             @csrf
             <div class="form-group">
-                <label for="order_id">order_id</label>
-                <input type="text" class="form-control" id="order_id" placeholder="order_id" name="order_id">
+                <label for="order_id">{{__('ORDER_ID')}} *</label>
+                <input type="text" class="form-control" id="order_id" placeholder="{{__('ORDER_ID')}}" name="order_id" required>
             </div>
 
             <div class="form-group">
-                <label for="national_code">national_code</label>
-                <input type="text" class="form-control" id="national_code" placeholder="national_code" name="national_code">
+                <label for="iban">{{__('IBAN')}} *</label>
+                <input type="text" class="form-control" id="iban" placeholder="{{__('IBAN')}}" name="iban" required>
             </div>
 
             <div class="form-group">
-                <label for="owner_name">owner_name</label>
-                <input type="text" class="form-control" id="owner_name" placeholder="owner_name" name="owner_name">
+                <label for="wallet_number">{{__('WALLET_NUMBER')}} *</label>
+                <input type="text" class="form-control" id="wallet_number" placeholder="{{__('WALLET_NUMBER')}}" name="wallet_number" required>
             </div>
 
             <div class="form-group">
-                <label for="phone">phone</label>
-                <input type="text" class="form-control" id="phone" placeholder="phone" name="phone">
+                <label for="amount">{{__('AMOUNT')}} *</label>
+                <input type="text" class="form-control" id="amount" placeholder="{{__('AMOUNT')}}" name="amount" required>
             </div>
 
             <div class="form-group">
-                <label for="birthday">birthday</label>
-                <input type="text" class="form-control" id="birthday" placeholder="birthday" name="birthday">
+                <label for="description">{{__('DESCRIPTION')}} *</label>
+                <input type="text" class="form-control" id="description" placeholder="{{__('DESCRIPTION')}}" name="description" required>
             </div>
 
             <div class="form-group">
-                <label for="iban">iban</label>
-                <input type="text" class="form-control" id="iban" placeholder="iban" name="iban">
+                <label for="national_code">{{__('NATIONAL_CODE')}}</label>
+                <input type="text" class="form-control" id="national_code" placeholder="{{__('NATIONAL_CODE')}}" name="national_code">
+            </div>
+
+
+            <div class="form-group">
+                <label for="phone">{{__('PHONE')}}</label>
+                <input type="text" class="form-control" id="phone" placeholder="{{__('PHONE')}}" name="phone">
             </div>
 
             <div class="form-group">
-                <label for="wallet_number">wallet_number</label>
-                <input type="text" class="form-control" id="wallet_number" placeholder="wallet_number" name="wallet_number">
+                <label for="birthday">{{__('BIRTH_DAY')}}</label>
+                <input type="text" class="form-control" id="birthday" placeholder="{{__('BIRTH_DAY')}}" name="birthday">
             </div>
 
             <div class="form-group">
-                <label for="amount">amount</label>
-                <input type="text" class="form-control" id="amount" placeholder="amount" name="amount">
+                <label for="owner_name">{{__('OWNER_NAME')}}</label>
+                <input type="text" class="form-control" id="owner_name" placeholder="{{__('OWNER_NAME')}}" name="owner_name">
             </div>
 
-            <div class="form-group">
-                <label for="description">description</label>
-                <input type="text" class="form-control" id="description" placeholder="description" name="description">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{__('SUBMIT')}}</button>
         </form>
 
     </div>
