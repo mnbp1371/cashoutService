@@ -1,10 +1,8 @@
-@extends('home', ['title' => __('transactions')])
+@extends('layouts.app', ['title' => __('transactions')])
 @section('content')
-
-
     <div class="card-body">
 
-        <form method="post" action="{{route('cashOutCall')}}">
+        <form method="post" action="{{route('user.cashOutCall')}}">
             @csrf
             <div class="form-group">
                 <label for="order_id">order_id</label>

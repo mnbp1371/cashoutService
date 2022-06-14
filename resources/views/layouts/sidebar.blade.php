@@ -13,24 +13,38 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('home') }}">
+        <a class="nav-link" href="{{ route('user.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>{{__('Dashboard')}}</span></a>
     </li>
 
     <!-- Nav Item - Transaction -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('transactions.index') }}">
+        <a class="nav-link" href="{{ route('user.transactions.index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>{{ __('Transactions') }}</span></a>
     </li>
 
+    <!-- Nav Item - CashOut -->
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('user.cashOutPage') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>{{ __('CashOut') }}</span></a>
+    </li>
+
     <!-- Nav Item - Transaction -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('cashOutPage') }}">
+        <a class="nav-link"
+           onclick="document.getElementById('logout-form').submit()"
+        >
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{ __('Cash_Out') }}</span></a>
+            <span>{{ __('Logout') }}</span></a>
     </li>
+
+    <form action="{{route('logout')}}" method="post" id="logout-form" hidden>
+        @csrf
+        <input type="submit">
+    </form>
 
     <!-- Divider -->
     <hr class="sidebar-divider">

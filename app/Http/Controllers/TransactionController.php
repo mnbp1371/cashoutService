@@ -3,27 +3,50 @@
 namespace App\Http\Controllers;
 
 use App\Helper\HttpHelper;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
     use HttpHelper;
 
-    public function index()
+    /**
+     * @return View|Factory|RedirectResponse|Application
+     */
+    public function index(): View|Factory|RedirectResponse|Application
     {
-        return view('transactions.index')->with([
-            'transactions' => $this->call('transactions')
-        ]);
+        try {
+            return view('transactions.index')->with([
+                'transactions' => $this->call('transactions')
+            ]);
+        } catch (\Throwable $exception) {
+            return $this->errorResponse($exception);
+        }
     }
 
-    public function cashOutPage()
+    /**
+     * @return Factory|View|Application
+     */
+    public function cashOutPage(): Factory|View|Application
     {
         return view('transactions.cashOut');
     }
 
-    public function cashOutCall(Request $request)
+    /**
+     * @param Request $request
+     *
+     * @return RedirectResponse
+     */
+    public function cashOutCall(Request $request): RedirectResponse
     {
-        $response =  $this->call("cash-out", 'post', $request->toArray());
-        return redirect()->route('transactions.show', ['transaction' => $response['data']['id']]);
+        try {
+            $this->call("cash-out", 'post', $request->toArray());
+            return redirect()->route('user.transactions.index');
+        } catch (\Throwable $exception) {
+            return $this->errorResponse($exception);
+        }
     }
 }

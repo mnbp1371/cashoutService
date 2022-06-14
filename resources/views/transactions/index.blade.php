@@ -6,7 +6,7 @@
 {{--@endforeach--}}
 
 
-@extends('home', ['title' => __('transactions')])
+@extends('layouts.app', ['title' => __('transactions')])
 @section('content')
     <h1 class="h3 mb-2 text-gray-800"></h1>
 

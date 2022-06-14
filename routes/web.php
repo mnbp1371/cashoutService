@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Auth::routes(['reset' => false, 'confirm' => false, 'verify' => false]);
+
+Route::middleware(['auth'])->name('user.')->group(function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+    Route::resource('transactions', TransactionController::class)->only('index');
+    Route::get('cash-outs', [TransactionController::class, 'cashOutPage'])->name('cashOutPage');
+    Route::post('cash-outs', [TransactionController::class, 'cashOutCall'])->name('cashOutCall');
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('transactions', TransactionController::class)->only('index');
-Route::get('cash-outs', [TransactionController::class, 'cashOutPage'])->name('cashOutPage');
-Route::post('cash-outs', [TransactionController::class, 'cashOutCall'])->name('cashOutCall');

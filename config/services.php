@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'cash_out' => [
+        'api_key' => env('IDPAY_API_KEY'),
+        'base_url' => 'https://api.idpay.ir/v2/api/wallets/cash-outs',
+    ],
 ];
