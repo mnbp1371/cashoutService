@@ -11,7 +11,7 @@
 
             <div class="form-group">
                 <label for="iban">{{__('IBAN')}} *</label>
-                <input type="text" class="form-control" id="iban" placeholder="{{__('IBAN')}}" name="iban" required>
+                <input type="text" class="form-control" id="iban" placeholder="{{__('IBAN')}}" name="iban" required value="{{$iban ?? old('iban')}}">
             </div>
 
             <div class="form-group">
@@ -34,7 +34,6 @@
                 <input type="text" class="form-control" id="national_code" placeholder="{{__('NATIONAL_CODE')}}" name="national_code">
             </div>
 
-
             <div class="form-group">
                 <label for="phone">{{__('PHONE')}}</label>
                 <input type="text" class="form-control" id="phone" placeholder="{{__('PHONE')}}" name="phone">
@@ -47,7 +46,7 @@
 
             <div class="form-group">
                 <label for="owner_name">{{__('OWNER_NAME')}}</label>
-                <input type="text" class="form-control" id="owner_name" placeholder="{{__('OWNER_NAME')}}" name="owner_name">
+                <input type="text" class="form-control" id="owner_name" placeholder="{{__('OWNER_NAME')}}" name="owner_name" value="{{ $owner_name ?? old('owner_name') }}">
             </div>
 
             <button type="submit" class="btn btn-primary">{{__('SUBMIT')}}</button>

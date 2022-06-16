@@ -27,7 +27,7 @@
 
     <!-- Nav Item - CashOut -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('user.cashOutPage') }}">
+        <a class="nav-link" href="{{ route('user.ibanInquiryPage') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>{{ __('CashOut') }}</span></a>
     </li>
