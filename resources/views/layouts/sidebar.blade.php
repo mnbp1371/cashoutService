@@ -1,52 +1,62 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<!-- begin::navigation -->
+<div class="navigation">
 
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+
+    <!-- begin::navigation menu -->
+    <div class="navigation-menu-body">
+
+        <!-- begin::navigation-logo -->
+        <div>
+            <div id="navigation-logo">
+                <a href="{{route('user.dashboard')}}">
+                    <img class="logo" src="{{ asset('image/logo.svg') }}" alt="logo">
+                    <img class="logo-light" src="{{ asset('image/logo.svg') }}" alt="light logo">
+                </a>
+            </div>
         </div>
-        <div class="sidebar-brand-text mx-3">IDPay <sup>CashOut</sup></div>
-    </a>
+        <!-- end::navigation-logo -->
 
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+        <div class="navigation-menu-group">
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('user.dashboard') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{__('Dashboard')}}</span></a>
-    </li>
+            <div class="open" id="dashboards">
+                <ul>
+                    <li class="navigation-divider">داشبردها</li>
+                    <li>
+                        <a class="{{ request()->route()->getName() == 'user.dashboard'  ? 'active' : '' }}"
+                           href="{{route('user.dashboard')}}">
+                            {{__('DASHBOARD')}}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ request()->route()->getName() == 'user.transactions.index' ? 'active' : '' }}"
+                           href="{{route('user.transactions.index')}}">
+                            {{__('TRANSACTION')}}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ in_array(request()->route()->getName(), [
+                              'user.ibanInquiryPage',
+                              'user.ibanInquiryCall',
+                              'user.cashOutPage',
+                            ]) ? 'active' : '' }}" href="{{route('user.ibanInquiryPage')}}">
+                            {{__('CASH_OUT')}}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" onclick="document.getElementById('logout-form').submit()">
+                            {{ __('LOGOUT') }}
+                        </a>
+                    </li>
+                </ul>
 
-    <!-- Nav Item - Transaction -->
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('user.transactions.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{ __('Transactions') }}</span></a>
-    </li>
+                <form action="{{route('logout')}}" method="post" id="logout-form" hidden>
+                    @csrf
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end::navigation menu -->
 
-    <!-- Nav Item - CashOut -->
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('user.ibanInquiryPage') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{ __('CashOut') }}</span></a>
-    </li>
-
-    <!-- Nav Item - Transaction -->
-    <li class="nav-item active">
-        <a class="nav-link"
-           onclick="document.getElementById('logout-form').submit()"
-        >
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{ __('Logout') }}</span></a>
-    </li>
-
-    <form action="{{route('logout')}}" method="post" id="logout-form" hidden>
-        @csrf
-        <input type="submit">
-    </form>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-</ul>
+</div>
+<!-- end::navigation -->

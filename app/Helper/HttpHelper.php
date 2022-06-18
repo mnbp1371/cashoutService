@@ -42,6 +42,8 @@ trait HttpHelper
             default => $exception->getMessage(),
         };
 
-        return back()->withErrors($errors)->withInput();
+        return back()->withErrors(
+            filter_errors($errors)
+        )->withInput();
     }
 }

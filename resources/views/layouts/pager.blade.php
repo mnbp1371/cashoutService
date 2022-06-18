@@ -8,7 +8,7 @@
         <ul class="pagination justify-content-center pagination-sm">
             <li class="page-item">
                 <a href="{{ request()->fullUrlWithQuery(['page' => ['number' => 1]])}}"
-                   class="page-link">{{ __('first')}}</a>
+                   class="page-link">{{ __('FIRST')}}</a>
             </li>
             @for($i = $min; $i <= $max; $i++)
                 @if($min > 1 && $i == $min)
@@ -27,7 +27,7 @@
             @endfor
             <li class="page-item">
                 <a href="{{ request()->fullUrlWithQuery(['page' => ['number' => $meta['last_page']]]) }}"
-                   class="page-link">{{ __('last')}}
+                   class="page-link">{{ __('LAST')}}
                 </a>
             </li>
         </ul>

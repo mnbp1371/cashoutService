@@ -1,123 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ __('IDPAY_CASH_OUT') }}</title>
 
-    <title>IDPay</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{asset('image/favicon.ico')}}"/>
 
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('panel/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <!-- Plugin styles -->
+    <link rel="stylesheet" href="vendors/bundle.css" type="text/css">
+
+    <!-- Datepicker -->
+    <link rel="stylesheet" href="vendors/datepicker/daterangepicker.css">
+    <link rel="stylesheet" href="assets/Datepiker/persian-datepicker.css">
 
 
-    <!-- Custom styles for this template-->
-    <link href="{{asset('panel/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <!-- Fullcalendar -->
+    <link rel="stylesheet" href="vendors/fullcalendar/fullcalendar.min.css" type="text/css">
+    <link href='assets/Cal/fullcalendar.css' rel='stylesheet'/>
+    <link href='assets/Cal/fullcalendar.print.css' rel='stylesheet' media='print'/>
 
+    <!-- Vmap -->
+    <link rel="stylesheet" href="vendors/vmap/jqvmap.min.css">
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="assets/css/app.min.css" type="text/css">
 </head>
+<body>
 
-<body id="page-top">
+<!-- begin::preloader-->
+<div class="preloader">
+    <div class="preloader-icon"></div>
+</div>
+<!-- end::preloader -->
 
-<!-- Page Wrapper -->
-<div id="wrapper">
-
-    <!-- Sidebar -->
-@include('layouts.sidebar')
-<!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-
-        <!-- Main Content -->
-        <div id="content">
-
-        <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <div class="topbar-divider d-none d-sm-block"></div>
-                </ul>
-            </nav>
-            <!-- End of Topbar -->
-
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">{{$title ?? ''}}</h1>
-                </div>
-
-                @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <!-- Content Row -->
-                <div class="row">
-                    @yield('content')
-                </div>
-
-                <!-- Content Row -->
-
-                <div class="row">
-
-
-                </div>
-
-
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy;IDPay</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
+<!-- begin::header -->
+<div class="header">
 
 </div>
-<!-- End of Page Wrapper -->
+<!-- end::header -->
 
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
+<!-- begin::main -->
+<div id="main">
+    @include('layouts.sidebar')
+
+    <!-- begin::main-content -->
+    <div class="main-content">
+
+        <!-- begin::page-header -->
+        <div class="page-header">
+            <div class="container-fluid d-sm-flex justify-content-between">
+                <h4>{{ $title ?? '' }}</h4>
+            </div>
+        </div>
+        <!-- end::page-header -->
+
+        <!-- begin::page content -->
+        <div class="container-fluid">
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @yield('content')
+        </div>
+        <!-- end::page content -->
+
+        <!-- begin::footer -->
+        <footer>
+            <div class="container-fluid">
+            </div>
+        </footer>
+        <!-- end::footer -->
+
+    </div>
+    <!-- end::main-content -->
+
+</div>
+<!-- end::main -->
+
+<!-- Plugin scripts -->
+<script src="vendors/bundle.js"></script>
+
+<!-- Chartjs -->
+<script src="vendors/charts/chartjs/chart.min.js"></script>
+
+<!-- Apex chart -->
+<script src="vendors/charts/apex/apexcharts.min.js"></script>
+
+<!-- Circle progress -->
+<script src="vendors/circle-progress/circle-progress.min.js"></script>
+
+<!-- Peity -->
+<script src="vendors/charts/peity/jquery.peity.min.js"></script>
+<script src="assets/js/examples/charts/peity.js"></script>
+
+<!-- Datepicker -->
+<script src="vendors/datepicker/daterangepicker.js"></script>
+<script src="assets/Datepiker/persian-datepicker.js"></script>
+<script src="vendors/datepicker/bootstrap-datepicker.fa.min.js"></script>
 
 
-<!-- Bootstrap core JavaScript-->
-<script src="{{asset('panel/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('panel/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- Slick -->
+<script src="vendors/slick/slick.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="{{asset('panel/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+<!-- Vamp -->
+<script src="vendors/vmap/jquery.vmap.min.js"></script>
+<script src="vendors/vmap/maps/jquery.vmap.usa.js"></script>
+<script src="assets/js/examples/vmap.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="{{asset('panel/js/sb-admin-2.min.js')}}"></script>
 
-<!-- Page level plugins -->
-<script src="{{asset('panel/vendor/chart.js/Chart.min.js')}}"></script>
+<!-- a -->
+<script src='assets/Cal/moment.js'></script>
+<script src='assets/Cal/moment-jalaali.js'></script>
+<script src='assets/Cal/fullcalendar.js'></script>
+<script src='assets/Cal/fa.js'></script>
 
-<!-- Page level custom scripts -->
-<script src="{{asset('panel/js/demo/chart-area-demo.js')}}"></script>
-<script src="{{asset('panel/js/demo/chart-pie-demo.js')}}"></script>
 
+<!-- Dashboard scripts -->
+<script src="assets/js/examples/dashboard.js"></script>
+<div class="colors"> <!-- To use theme colors with Javascript -->
+    <div class="bg-primary"></div>
+    <div class="bg-primary-bright"></div>
+    <div class="bg-secondary"></div>
+    <div class="bg-secondary-bright"></div>
+    <div class="bg-info"></div>
+    <div class="bg-info-bright"></div>
+    <div class="bg-success"></div>
+    <div class="bg-success-bright"></div>
+    <div class="bg-danger"></div>
+    <div class="bg-danger-bright"></div>
+    <div class="bg-warning"></div>
+    <div class="bg-warning-bright"></div>
+</div>
+
+
+<!-- App scripts -->
+<script src="assets/js/app.min.js"></script>
 </body>
 
 </html>

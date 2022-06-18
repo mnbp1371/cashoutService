@@ -38,7 +38,7 @@ class TransactionController extends Controller
     public function cashOutPage(Request $request): Factory|View|Application
     {
         return view('transactions.cashOut')->with([
-            'owner_name' => $request->owner_name,
+            'ownerName' => $request->owner_name,
             'iban' => $request->iban,
         ]);
     }

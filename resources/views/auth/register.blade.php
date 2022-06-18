@@ -1,105 +1,76 @@
-{{--<div class="form-group row">--}}
-{{--    <div class="col-sm-6 mb-3 mb-sm-0">--}}
-{{--        <input type="text" class="form-control form-control-user" id="exampleFirstName"--}}
-{{--               placeholder="First Name">--}}
-{{--    </div>--}}
-{{--    <div class="col-sm-6">--}}
-{{--        <input type="text" class="form-control form-control-user" id="exampleLastName"--}}
-{{--               placeholder="Last Name">--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--<div class="form-group">--}}
-{{--    <input type="email" class="form-control form-control-user" id="exampleInputEmail"--}}
-{{--           placeholder="Email Address">--}}
-{{--</div>--}}
-{{--<div class="form-group row">--}}
-{{--    <div class="col-sm-6 mb-3 mb-sm-0">--}}
-{{--        <input type="password" class="form-control form-control-user"--}}
-{{--               id="exampleInputPassword" placeholder="Password">--}}
-{{--    </div>--}}
-{{--    <div class="col-sm-6">--}}
-{{--        <input type="password" class="form-control form-control-user"--}}
-{{--               id="exampleRepeatPassword" placeholder="Repeat Password">--}}
-{{--    </div>--}}
-{{--</div>--}}
-
-
-    <!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{__('IDPAY')}}</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{asset('image/favicon.ico')}}"/>
 
-    <title>SB Admin 2 - Register</title>
+    <!-- Plugin styles -->
+    <link rel="stylesheet" href="vendors/bundle.css" type="text/css">
 
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('panel/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-
-    <!-- Custom styles for this template-->
-    <link href="{{asset('panel/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    <!-- App styles -->
+    <link rel="stylesheet" href="assets/css/app.min.css" type="text/css">
 </head>
+<body class="form-membership">
 
-<body class="bg-gradient-primary">
+<!-- begin::preloader-->
+<div class="preloader">
+    <div class="preloader-icon"></div>
+</div>
+<!-- end::preloader -->
 
-<div class="container">
-
-    <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                <div class="col-lg-7">
-                    <div class="p-5">
-                        <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-                        </div>
-                        <form class="user" method="post" action="{{route('register')}}">
-                            @csrf
-                            <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="exampleInputEmail"
-                                       placeholder="Name" name="name">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                       placeholder="Email Address" name="email">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control form-control-user" id="exampleInputEmail"
-                                       placeholder="Password" name="password">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control form-control-user" id="exampleInputEmail"
-                                       placeholder="confirmed" name="password_confirmation">
-                            </div>
-                            <button href="login.html" class="btn btn-primary btn-user btn-block">
-                                Register Account
-                            </button>
-                            <hr>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<div class="form-wrapper">
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
+    @endif
+
+    <!-- logo -->
+    <div id="logo">
+        <img class="logo" src="{{ asset('image/logo.svg') }}" alt="logo">
+        <img class="logo-light" src="{{ asset('image/logo.svg') }}" alt="light logo">
     </div>
+    <!-- ./ logo -->
+
+    <h5>{{__('CREATE_ACCOUNT')}}</h5>
+
+    <!-- form -->
+    <form class="user" method="post" action="{{route('register')}}">
+        @csrf
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="{{__('EMAIL')}}" required autofocus name="email">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="{{__('NAME')}}" required autofocus name="name">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="{{__('PASSWORD')}}" required name="password">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="{{__('PASSWORD_CONFIRMATION')}}" required name="password_confirmation">
+        </div>
+        <button class="btn btn-primary btn-block">ثبت‌نام</button>
+        <hr>
+    </form>
+    <!-- ./ form -->
 
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="{{asset('panel/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('panel/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- Plugin scripts -->
+<script src="vendors/bundle.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="{{asset('panel/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="{{asset('panel/js/sb-admin-2.min.js')}}"></script>
-
+<!-- App scripts -->
+<script src="assets/js/app.min.js"></script>
 </body>
 
 </html>

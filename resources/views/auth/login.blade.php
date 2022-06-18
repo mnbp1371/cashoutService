@@ -1,80 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ __('IDPAY') }}</title>
 
-    <title>SB Admin 2 - Login</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{asset('image/favicon.ico')}}"/>
 
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('panel/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <!-- Plugin styles -->
+    <link rel="stylesheet" href="vendors/bundle.css" type="text/css">
 
-    <!-- Custom styles for this template-->
-    <link href="{{asset('panel/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    <!-- App styles -->
+    <link rel="stylesheet" href="assets/css/app.min.css" type="text/css">
 </head>
+<body class="form-membership">
 
-<body class="bg-gradient-primary">
+<!-- begin::preloader-->
+<div class="preloader">
+    <div class="preloader-icon"></div>
+</div>
+<!-- end::preloader -->
 
-<div class="container">
+<div class="form-wrapper">
 
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
-
-        <div class="col-xl-10 col-lg-12 col-md-9">
-
-            <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="card-body p-0">
-                    <!-- Nested Row within Card Body -->
-                    <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                </div>
-                                <form class="user" method="post" action="{{route('login')}}">
-                                    @csrf
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" name="email"
-                                               id="exampleInputEmail" aria-describedby="e mailHelp"
-                                               placeholder="Enter Email Address...">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" name="password"
-                                               id="exampleInputPassword" placeholder="Password">
-                                    </div>
-                                    <button href="index.html" class="btn btn-primary btn-user btn-block">
-                                        Login
-                                    </button>
-                                </form>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+    <!-- logo -->
+    <div id="logo">
+        <img class="logo" src="{{ asset('image/logo.svg') }}" alt="logo">
+        <img class="logo-light" src="{{ asset('image/logo.svg') }}" alt="light logo">
     </div>
+    <!-- ./ logo -->
+
+    <h5>{{__('LOGIN')}}</h5>
+
+    <!-- form -->
+    <form class="user" method="post" action="{{route('login')}}">
+        @csrf
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="{{ __('ENTER_YOUR_EMAIL') }}" required autofocus name="email">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="{{__('PASSWORD')}}" required name="password">
+        </div>
+        <button class="btn btn-primary btn-block">{{__('LOGIN')}}</button>
+        <hr>
+        <a href="{{ route('register') }}" class="btn btn-outline-light btn-sm">{{__('REGISTER')}}</a>
+    </form>
+    <!-- ./ form -->
 
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="{{asset('panel/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('panel/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- Plugin scripts -->
+<script src="vendors/bundle.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="{{asset('panel/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="{{ asset('panel/js/sb-admin-2.min.js') }}"></script>
-
+<!-- App scripts -->
+<script src="assets/js/app.min.js"></script>
 </body>
 
 </html>
