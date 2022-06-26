@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('jdatetime', function ($date) {
-            return "<?php echo \Morilog\Jalali\Jalalian::forge($date)->format('%A - %Y/m/d - H:i:s') ?>";
+            return "<?php echo !empty($date) ? \Morilog\Jalali\Jalalian::forge($date)->format('%A - %Y/m/d - H:i:s') : '' ?>";
         });
     }
 }

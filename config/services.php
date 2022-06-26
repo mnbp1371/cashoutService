@@ -33,6 +33,7 @@ return [
 
     'cash_out' => [
         'api_key' => env('IDPAY_API_KEY'),
+        'wallets_number' => env('IDPAY_WALLETS_NUMBER'),
         'base_url' => 'https://api.idpay.ir/v2/api/wallets/cash-outs',
     ],
 ];

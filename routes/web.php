@@ -20,7 +20,7 @@ Auth::routes(['reset' => false, 'confirm' => false, 'verify' => false]);
 
 Route::middleware(['auth'])->name('user.')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-    Route::resource('transactions', TransactionController::class)->only('index');
+    Route::resource('transactions', TransactionController::class)->only('index', 'show');
     Route::get('cash-outs-page', [TransactionController::class, 'cashOutPage'])->name('cashOutPage');
     Route::post('cash-outs-call', [TransactionController::class, 'cashOutCall'])->name('cashOutCall');
     Route::get('iban-inquiry', [TransactionController::class, 'ibanInquiryPage'])->name('ibanInquiryPage');

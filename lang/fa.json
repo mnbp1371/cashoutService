@@ -5,7 +5,7 @@
     "PASSWORD": "گذرواژه",
     "PASSWORD_CONFIRMATION": "تکرار گذرواژه",
     "DASHBOARD": "داشبورد",
-    "TRANSACTION": "تراکنش ها",
+    "TRANSACTION": "تراکنش",
     "CASH_OUT": "برداشت",
     "LOGOUT": "خروج",
     "STATUS": "وضعیت",
@@ -37,5 +37,8 @@
     "FIRST": "نخست",
     "status": "وضعیت",
     "code": "کد",
+    "RECEIPT": "رسید",
+    "BANK": "بانک",
+    "IDPAY": "IDPay",
     "IDPAY_CASH_OUT": "برداشت از کیف پول"
 }

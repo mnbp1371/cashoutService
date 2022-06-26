@@ -20,7 +20,7 @@
 
             <div class="open" id="dashboards">
                 <ul>
-                    <li class="navigation-divider">داشبردها</li>
+                    <li class="navigation-divider">{{__('IDPAY')}}</li>
                     <li>
                         <a class="{{ request()->route()->getName() == 'user.dashboard'  ? 'active' : '' }}"
                            href="{{route('user.dashboard')}}">
@@ -28,7 +28,10 @@
                         </a>
                     </li>
                     <li>
-                        <a class="{{ request()->route()->getName() == 'user.transactions.index' ? 'active' : '' }}"
+                        <a class="{{ in_array(request()->route()->getName(), [
+                              'user.transactions.index',
+                              'user.transactions.show',
+                           ]) ? 'active' : '' }}"
                            href="{{route('user.transactions.index')}}">
                             {{__('TRANSACTION')}}
                         </a>

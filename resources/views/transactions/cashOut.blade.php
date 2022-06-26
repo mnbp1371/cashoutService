@@ -9,7 +9,8 @@
                         @csrf
                         <div class="form-group">
                             <label for="order_id">{{__('ORDER_ID')}} *</label>
-                            <input type="text" class="form-control" id="order_id" placeholder="{{__('ORDER_ID')}}" value="{{old('order_id')}}"
+                            <input type="text" class="form-control" id="order_id" placeholder="{{__('ORDER_ID')}}"
+                                   value="{{old('order_id')}}"
                                    name="order_id" required>
                         </div>
 
@@ -21,19 +22,24 @@
 
                         <div class="form-group">
                             <label for="wallet_number">{{__('WALLET_NUMBER')}} *</label>
-                            <input type="text" class="form-control" id="wallet_number" value="{{old('wallet_number')}}"
-                                   placeholder="{{__('WALLET_NUMBER')}}" name="wallet_number" required>
+                            <select id="wallet_number" class="form-control" name="wallet_number">
+                                @foreach($walletsNumber as $walletNumber)
+                                    <option value="{{$walletNumber}}">{{$walletNumber}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <label for="amount">{{__('AMOUNT')}} *</label>
-                            <input type="text" class="form-control" id="amount" placeholder="{{__('AMOUNT')}}" value="{{old('amount')}}"
+                            <input type="text" class="form-control" id="amount" placeholder="{{__('AMOUNT')}}"
+                                   value="{{old('amount')}}"
                                    name="amount" required>
                         </div>
 
                         <div class="form-group">
                             <label for="description">{{__('DESCRIPTION')}} *</label>
-                            <input type="text" class="form-control" id="description" placeholder="{{__('DESCRIPTION')}}" value="{{old('description')}}"
+                            <input type="text" class="form-control" id="description" placeholder="{{__('DESCRIPTION')}}"
+                                   value="{{old('description')}}"
                                    name="description" required>
                         </div>
 
@@ -45,13 +51,15 @@
 
                         <div class="form-group">
                             <label for="phone">{{__('PHONE')}}</label>
-                            <input type="text" class="form-control" id="phone" placeholder="{{__('PHONE')}}" value="{{old('phone')}}"
+                            <input type="text" class="form-control" id="phone" placeholder="{{__('PHONE')}}"
+                                   value="{{old('phone')}}"
                                    name="phone">
                         </div>
 
                         <div class="form-group">
                             <label for="birthday">{{__('BIRTH_DAY')}}</label>
-                            <input type="text" class="form-control" id="birthday" placeholder="{{__('BIRTH_DAY')}}" value="{{old('birthday')}}"
+                            <input type="text" class="form-control" id="birthday" placeholder="{{__('BIRTH_DAY')}}"
+                                   value="{{old('birthday')}}"
                                    name="birthday">
                         </div>
 

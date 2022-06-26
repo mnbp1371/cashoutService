@@ -26,7 +26,11 @@
                         <tr>
                         @foreach($transactions as $item)
                             <tr>
-                                <td>{{$item['track_id']}}</td>
+                                <td>
+                                    <a style="color: #00aa33" href="{{route('user.transactions.show', ['transaction' => $item['id']])}}">
+                                        {{$item['track_id']}}
+                                    </a>
+                                </td>
                                 <td>{{ $item['type']['title'] }}</td>
                                 <td>{{ $item['status']['title'] }}</td>
                                 <td>{{ $item['amount'] }}</td>

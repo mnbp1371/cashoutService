@@ -32,14 +32,34 @@ class TransactionController extends Controller
     }
 
     /**
+     * @param string $id
+     *
+     * @return Application|Factory|View|RedirectResponse
+     */
+    public function show(string $id): View|Factory|RedirectResponse|Application
+    {
+        try {
+            return view('transactions.show')->with([
+                'transaction' => $this->call("transactions/{$id}")['data'],
+            ]);
+        } catch (\Throwable $exception) {
+            return $this->errorResponse($exception);
+        }
+    }
+
+    /**
      * @param Request $request
      * @return Factory|View|Application
      */
     public function cashOutPage(Request $request): Factory|View|Application
     {
+        $walletsNumber = config('services.cash_out.wallets_number');
+        $walletsNumber = explode(',', $walletsNumber);
+
         return view('transactions.cashOut')->with([
             'ownerName' => $request->owner_name,
             'iban' => $request->iban,
+            'walletsNumber' => $walletsNumber,
         ]);
     }
 
@@ -51,8 +71,8 @@ class TransactionController extends Controller
     public function cashOutCall(Request $request): RedirectResponse
     {
         try {
-            $this->call("cash-out", 'post', $request->toArray());
-            return redirect()->route('user.transactions.index');
+            $transaction = $this->call("cash-out", 'post', $request->toArray());
+            return redirect()->route('user.transactions.show', ['transaction' => $transaction['data']['id']]);
         } catch (\Throwable $exception) {
             return $this->errorResponse($exception);
         }
